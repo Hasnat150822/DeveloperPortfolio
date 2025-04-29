@@ -69,28 +69,20 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
+        <ScrollReveal className="text-center mb-16" delay={0.1}>
           <h2 className="text-3xl font-bold mb-3">Get In Touch</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
             Have a project in mind or want to work together? Feel free to reach out!
           </p>
-        </motion.div>
+        </ScrollReveal>
         
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
-          <motion.div
+          <ScrollReveal 
             className="bg-white rounded-lg shadow-md p-8 dark:bg-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            delay={0.2}
+            direction="left"
           >
             <form onSubmit={handleSubmit}>
               <div className="mb-6">
@@ -157,16 +149,14 @@ const ContactSection = () => {
                 <Send className="mr-2 h-4 w-4" /> Send Message
               </Button>
             </form>
-          </motion.div>
+          </ScrollReveal>
           
           {/* Contact Info */}
           <div>
-            <motion.div
+            <ScrollReveal
               className="bg-white rounded-lg shadow-md p-8 mb-8 dark:bg-gray-900"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              delay={0.3}
+              direction="right"
             >
               <h3 className="text-xl font-bold mb-6">Contact Information</h3>
               
@@ -207,14 +197,12 @@ const ContactSection = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </ScrollReveal>
             
-            <motion.div
+            <ScrollReveal
               className="bg-white rounded-lg shadow-md p-8 dark:bg-gray-900"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              delay={0.4}
+              direction="right"
             >
               <h3 className="text-xl font-bold mb-6">Follow Me</h3>
               
@@ -268,7 +256,7 @@ const ContactSection = () => {
                   <FileText className="h-5 w-5 text-gray-700 hover:text-primary dark:text-gray-300" />
                 </a>
               </div>
-            </motion.div>
+            </ScrollReveal>
           </div>
         </div>
       </div>
