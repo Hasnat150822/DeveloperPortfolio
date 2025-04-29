@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { scrollToSection } from "@/lib/utils";
 
 const HeroSection = () => {
   return (
@@ -28,19 +29,19 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
-                size="lg" 
-                asChild
+                size="lg"
                 className="transition-transform hover:-translate-y-1 bg-primary hover:bg-primary/90"
+                onClick={() => scrollToSection("contact")}
               >
-                <a href="#contact">Let's Talk</a>
+                Let's Talk
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                asChild
                 className="transition-transform hover:-translate-y-1 hover:text-primary hover:border-primary"
+                onClick={() => scrollToSection("projects")}
               >
-                <a href="#projects">View My Work</a>
+                View My Work
               </Button>
             </div>
           </motion.div>
@@ -70,6 +71,10 @@ const HeroSection = () => {
           <a
             href="#about"
             className="p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow duration-300 dark:bg-gray-800"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("about");
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { cn } from "@/lib/utils";
+import { cn, scrollToSection } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -52,7 +52,11 @@ const Navbar = () => {
           activeSection === item.href.slice(1) ? "text-primary font-medium" : "text-foreground",
           mobile ? "py-2" : ""
         )}
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
+          const sectionId = item.href.slice(1);
+          scrollToSection(sectionId);
+          
           if (mobile) {
             const sheetClose = document.getElementById("sheet-close");
             if (sheetClose) {
@@ -71,7 +75,14 @@ const Navbar = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <a href="#hero" className="text-2xl font-bold flex items-center">
+          <a 
+            href="#hero" 
+            className="text-2xl font-bold flex items-center"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("hero");
+            }}
+          >
             <span className="bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent">&lt;JD/&gt;</span>
           </a>
 
