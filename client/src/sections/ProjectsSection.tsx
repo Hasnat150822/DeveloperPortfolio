@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ScrollReveal from "@/components/ScrollReveal";
 
 // Projects data
 const projects = [
@@ -35,12 +36,10 @@ const projects = [
 
 const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   return (
-    <motion.div
+    <ScrollReveal 
       className="group bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 dark:bg-gray-900"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.1 * project.id }}
+      delay={0.1 * project.id}
+      direction={project.id % 2 === 0 ? "right" : "left"}
     >
       <div className="relative overflow-hidden">
         <img
@@ -90,7 +89,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </ScrollReveal>
   );
 };
 
@@ -98,19 +97,13 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
+        <ScrollReveal className="text-center mb-16" delay={0.1}>
           <h2 className="text-3xl font-bold mb-3">My Projects</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
             Check out some of my recent work
           </p>
-        </motion.div>
+        </ScrollReveal>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
@@ -118,13 +111,7 @@ const ProjectsSection = () => {
           ))}
         </div>
         
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
+        <ScrollReveal className="text-center mt-12" delay={0.5} direction="up">
           <Button
             variant="outline"
             className="border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300"
@@ -134,7 +121,7 @@ const ProjectsSection = () => {
               View All Projects
             </a>
           </Button>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );
