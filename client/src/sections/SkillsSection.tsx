@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Code, Server } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ScrollReveal from "@/components/ScrollReveal";
 
 // Frontend skills data
 const frontendSkills = [
@@ -55,29 +56,17 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
+        <ScrollReveal className="text-center mb-16" delay={0.1}>
           <h2 className="text-3xl font-bold mb-3">My Skills</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
             Technologies and tools I work with on a regular basis
           </p>
-        </motion.div>
+        </ScrollReveal>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
           {/* Frontend Skills */}
-          <motion.div
-            className="bg-white rounded-lg shadow-md p-8 dark:bg-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          <ScrollReveal className="bg-white rounded-lg shadow-md p-8 dark:bg-gray-900" delay={0.2} direction="left">
             <h3 className="text-xl font-bold mb-6 flex items-center">
               <Code className="mr-2 text-primary" size={24} />
               Frontend Development
@@ -86,16 +75,10 @@ const SkillsSection = () => {
             {frontendSkills.map((skill) => (
               <SkillBar key={skill.name} name={skill.name} percentage={skill.percentage} />
             ))}
-          </motion.div>
+          </ScrollReveal>
           
           {/* Backend Skills */}
-          <motion.div
-            className="bg-white rounded-lg shadow-md p-8 dark:bg-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
+          <ScrollReveal className="bg-white rounded-lg shadow-md p-8 dark:bg-gray-900" delay={0.3} direction="right">
             <h3 className="text-xl font-bold mb-6 flex items-center">
               <Server className="mr-2 text-green-500" size={24} />
               Backend & Tools
@@ -104,16 +87,11 @@ const SkillsSection = () => {
             {backendSkills.map((skill) => (
               <SkillBar key={skill.name} name={skill.name} percentage={skill.percentage} />
             ))}
-          </motion.div>
+          </ScrollReveal>
         </div>
         
         {/* Other Skills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
+        <ScrollReveal delay={0.4} direction="up">
           <h3 className="text-xl font-bold mb-6 text-center">Other Technologies</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {otherTechnologies.map((tech) => (
@@ -125,7 +103,7 @@ const SkillsSection = () => {
               </span>
             ))}
           </div>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );
